@@ -1,6 +1,6 @@
-%patentfetch(1) user manual | version 0.0.1 11d2ab0
+%patentfetch(1) user manual | version 0.0.1 4f63f91
 % R. S. Doiel
-% 2025-10-17
+% 2025-10-21
 
 # NAME
 

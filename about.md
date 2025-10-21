@@ -19,7 +19,7 @@ programming_language:
   - Go
 
 
-date_released: 2025-10-17
+date_released: 2025-10-21
 ---
 
 About this software
