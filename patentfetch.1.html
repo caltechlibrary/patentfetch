@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <title>PatentFetch</title>
+    <link rel="stylesheet" href="https://caltechlibrary.github.io/css/site.css">
+    <link rel="stylesheet" href="https://media.library.caltech.edu/cl-webcomponents/css/code-blocks.css">
+    <script type="module" src="https://media.library.caltech.edu/cl-webcomponents/copyToClipboard.js"></script>
+    <script type="module" src="https://media.library.caltech.edu/cl-webcomponents/footer-global.js"></script>
+</head>
+<body>
+<header>
+<a href="https://library.caltech.edu"><img src="https://media.library.caltech.edu/assets/caltechlibrary-logo.png" alt="Caltech Library logo"></a>
+</header>
+<nav>
+<ul>
+    <li><a href="/">Home</a></li>
+    <li><a href="index.html">README</a></li>
+    <li><a href="LICENSE">LICENSE</a></li>
+    <li><a href="INSTALL.html">INSTALL</a></li>
+    <li><a href="user_manual.html">User Manual</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="search.html">Search</a></li>
+    <li><a href="https://github.com/caltechlibrary/PatentFetch.git">GitHub</a></li>
+</ul>
+</nav>
+<section>
+<h1 id="name">NAME</h1>
+<p>patentfetch</p>
+<h1 id="synopsis">SYNOPSIS</h1>
+<p>patentfetch <a href="#options">OPTIONS</a> CSV_FILENAME</p>
+<h1 id="description">DESCRIPTION</h1>
+<p>patentfetch will retrieve the provided CSV file, use the “result
+link” column to fetch the the results landing page for the patent in the
+row and parse that page for the meta element with the name value of
+“citation_pdf_url”. If that is found then the PDF will be retrieved
+too.</p>
+<p>On success the CSV file will be updated for the filename retreived,
+on failure that column value will be set to an empty string.</p>
+<h1 id="options">OPTIONS</h1>
+<dl>
+<dt>-help</dt>
+<dd>
+display this help page
+</dd>
+<dt>-version</dt>
+<dd>
+display version info
+</dd>
+<dt>-license</dt>
+<dd>
+display license
+</dd>
+</dl>
+<h1 id="example">EXAMPLE</h1>
+<pre class="shell"><code>patentfetch gp-search-20251017-143309.csv</code></pre>
+<p>This will process the CSV file and retrieve the PDFs it can find.</p>
+</section>
+<footer-global></footer-global>
+</body>
+</html>

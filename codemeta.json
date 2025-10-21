@@ -1,7 +1,7 @@
 {
   "@context": "https://w3id.org/codemeta/3.0",
   "type": "SoftwareSourceCode",
-  "codeRepository": "https://github.com/caltechlibrary/PatentFetch.git",
+  "codeRepository": "https://github.com/caltechlibrary/patentfetch.git",
   "author": [
     {
       "id": "https://orcid.org/0000-0003-0900-6903",
@@ -14,7 +14,7 @@
   "dateCreated": "2025-10-17",
   "dateModified": "2025-10-17",
   "datePublished": "2025-10-17",
-  "description": "PatentFetch uses a CSV file provided by Google's Patent search download link to retrieve patent PDFs if available.\n\n- The individual search result page's HTML is retrieved and parsed for the meta element containing the `name=\"citation_pdf_url\"`. \n- The citation pdf url is used to then retrieve the PDF of the patent",
+  "description": "patentfetch uses a CSV file provided by Google's Patent search download link to retrieve patent PDFs if available.\n\n- The individual search result page's HTML is retrieved and parsed for the meta element containing the `name=\"citation_pdf_url\"`. \n- The citation pdf url is used to then retrieve the PDF of the patent",
   "funder": [
     {
       "name": "Caltech Library",
@@ -22,7 +22,7 @@
     }
   ],
   "name": "patentfetch",
-  "license": "https://caltechlibrary.github.io/PatentFetch/LICENSE",
+  "license": "https://caltechlibrary.github.io/patentfetch/LICENSE",
   "programmingLanguage": [
     "Go"
   ],
@@ -34,7 +34,7 @@
   ],
   "version": "0.0.1",
   "developmentStatus": "concept",
-  "issueTracker": "https://github.com/caltechlibrary/PatentFetch/issues",
+  "issueTracker": "https://github.com/caltechlibrary/patentfetch/issues",
   "releaseNotes": "Proof of concept command line tool to retrieving patent PDFs for Caltech Archives.",
   "copyrightYear": 2025,
   "copyrightHolder": "California Institute of Technology"

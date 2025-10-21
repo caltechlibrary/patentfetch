@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <title>PatentFetch</title>
+    <link rel="stylesheet" href="https://caltechlibrary.github.io/css/site.css">
+    <link rel="stylesheet" href="https://media.library.caltech.edu/cl-webcomponents/css/code-blocks.css">
+    <script type="module" src="https://media.library.caltech.edu/cl-webcomponents/copyToClipboard.js"></script>
+    <script type="module" src="https://media.library.caltech.edu/cl-webcomponents/footer-global.js"></script>
+</head>
+<body>
+<header>
+<a href="https://library.caltech.edu"><img src="https://media.library.caltech.edu/assets/caltechlibrary-logo.png" alt="Caltech Library logo"></a>
+</header>
+<nav>
+<ul>
+    <li><a href="/">Home</a></li>
+    <li><a href="index.html">README</a></li>
+    <li><a href="LICENSE">LICENSE</a></li>
+    <li><a href="INSTALL.html">INSTALL</a></li>
+    <li><a href="user_manual.html">User Manual</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="search.html">Search</a></li>
+    <li><a href="https://github.com/caltechlibrary/PatentFetch.git">GitHub</a></li>
+</ul>
+</nav>
+<section>
+<h1 id="about-this-software">About this software</h1>
+<h2 id="patentfetch-0.0.1">patentfetch 0.0.1</h2>
+<p>Proof of concept command line tool to retrieving patent PDFs for
+Caltech Archives.</p>
+<h3 id="authors">Authors</h3>
+<ul>
+<li>R. S. Doiel, <a href="https://orcid.org/0000-0003-0900-6903"
+class="uri">https://orcid.org/0000-0003-0900-6903</a></li>
+</ul>
+<p>patentfetch uses a CSV file provided by Google's Patent search
+download link to retrieve patent PDFs if available.</p>
+<ul>
+<li><p>The individual search result page's HTML is retrieved and parsed
+for the meta element containing the `name="citation_pdf_url"`.</p></li>
+<li><p>The citation pdf url is used to then retrieve the PDF of the
+patent</p></li>
+<li><p>License: <a
+href="https://caltechlibrary.github.io/patentfetch/LICENSE"
+class="uri">https://caltechlibrary.github.io/patentfetch/LICENSE</a></p></li>
+<li><p>GitHub: <a
+href="https://github.com/caltechlibrary/patentfetch.git"
+class="uri">https://github.com/caltechlibrary/patentfetch.git</a></p></li>
+<li><p>Issues: <a
+href="https://github.com/caltechlibrary/patentfetch/issues"
+class="uri">https://github.com/caltechlibrary/patentfetch/issues</a></p></li>
+</ul>
+<h3 id="programming-languages">Programming languages</h3>
+<ul>
+<li>Go</li>
+</ul>
+<h3 id="software-requirements">Software Requirements</h3>
+<ul>
+<li>go &gt;= 1.25.3</li>
+</ul>
+<h3 id="software-suggestions">Software Suggestions</h3>
+<ul>
+<li>CMTools &gt;= 0.0.40</li>
+</ul>
+</section>
+<footer-global></footer-global>
+</body>
+</html>

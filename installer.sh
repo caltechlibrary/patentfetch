@@ -1,10 +1,10 @@
 #!/bin/sh
-# generated with CMTools 0.0.1 
+# generated with CMTools 0.0.1 11d2ab0
 
 #
 # Set the package name and version to install
 #
-PACKAGE="PatentFetch"
+PACKAGE="patentfetch"
 VERSION="0.0.1"
 GIT_GROUP="caltechlibrary"
 RELEASE="https://github.com/$GIT_GROUP/$PACKAGE/releases/tag/v$VERSION"

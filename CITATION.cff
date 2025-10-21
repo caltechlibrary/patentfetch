@@ -2,8 +2,8 @@
 cff-version: 1.2.0
 message: "If you use this software, please cite it as below."
 type: software
-title: PatentFetch
-abstract: "PatentFetch uses a CSV file provided by Google's Patent search download link to retrieve patent PDFs if available.
+title: patentfetch
+abstract: "patentfetch uses a CSV file provided by Google's Patent search download link to retrieve patent PDFs if available.
 
 - The individual search result page's HTML is retrieved and parsed for the meta element containing the `name="citation_pdf_url"`. 
 - The citation pdf url is used to then retrieve the PDF of the patent"
@@ -14,8 +14,8 @@ authors:
     email: rsdoiel@caltech.edu
 
 
-repository-code: "https://github.com/caltechlibrary/PatentFetch.git"
+repository-code: "https://github.com/caltechlibrary/patentfetch.git"
 version: 0.0.1
 date-released: 2025-10-17
 
-license-url: "https://caltechlibrary.github.io/PatentFetch/LICENSE"
+license-url: "https://caltechlibrary.github.io/patentfetch/LICENSE"

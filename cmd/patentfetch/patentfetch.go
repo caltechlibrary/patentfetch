@@ -11,20 +11,20 @@ import (
 
 func main() {
 	appName := path.Base(os.Args[0])
-	licenseText, version, releaseDate, releaseHash := patentfetch.LicenseText, patentfetch.version, patentfetch.ReleaseDate, patentfetch.releaseHash
-	helpText = patentfetch.HelpText
+	licenseText, version, releaseDate, releaseHash := patentfetch.LicenseText, patentfetch.Version, patentfetch.ReleaseDate, patentfetch.ReleaseHash
+	helpText := patentfetch.HelpText
 	showHelp, showLicense, showVersion := false, false, false	
-	fmtHelp := dataset.FmtHelp
+	fmtHelp := patentfetch.FmtHelp
 
-	flag.BoolVar("help", showLicense, "display help")
-	flag.BoolVar("license", showLicense, "display license")
-	flag.BoolVar("version", showVersion, "display version")
+	flag.BoolVar(&showHelp, "help", showHelp, "display help")
+	flag.BoolVar(&showLicense, "license", showLicense, "display license")
+	flag.BoolVar(&showVersion, "version", showVersion, "display version")
 	flag.Parse()
 	args := flag.Args()
 
 	//in := os.Stdin
 	out := os.Stdout
-	//eout := os.Stderr
+	eout := os.Stderr
 
 	if showHelp {
 		fmt.Fprintf(out, "%s\n", fmtHelp(helpText, appName, version, releaseDate, releaseHash))
@@ -54,7 +54,8 @@ func main() {
 		fmt.Fprintf(eout, "failed to parse %s, %s\n", args[0], err)
 		os.Exit(1)
 	}
-	if err := Process(data); err != nil {
+
+	if err := patentfetch.Process(data); err != nil {
 		fmt.Fprintf(eout, "failed to process %s, %s\n", args[0], err)
 		os.Exit(1)
 	}

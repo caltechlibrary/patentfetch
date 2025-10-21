@@ -27,6 +27,13 @@ type PatentRecord struct {
 	DownloadedPDF string `csv:"downloaded pdf" json:"downloaded_pdf,omitempty" yaml:"downlaoded_pdf,omitempty"`
 }
 
+func getColumn(columns []string, colNo int, defaultValue string) string {
+	if len(columns) > colNo {
+		return columns[colNo]
+	}
+	return defaultValue
+}
+
 // Parse takes a CSV source text and parses the CSV file to return a list of Patent records from the CSV data
 func Parse(src []byte) ([]*PatentRecord, error) {
 	// NOTE: Trim first line, it's not a header, then we can parse it using the csv package
@@ -41,19 +48,22 @@ func Parse(src []byte) ([]*PatentRecord, error) {
 	data := []*PatentRecord{}
 	for i, row := range records {
 		fmt.Printf("DEBUG row %d -> %+v\n", i, row)
-		/*
-		           // Parse the single field into a PatentRecord
-		           p := &PatentRecord{}
-
-		           // If you want to parse the dates as time.Time objects, uncomment and adjust the following lines
-		           // p.ParseDates()
-
-		           // Print the parsed data (or process it further)
-		           fmt.Printf("%+v\n", p)
-		   		data = append(data, p)
-		*/
+		// Parse the single field into a PatentRecord
+		p := &PatentRecord{}
+		p.ID = getColumn(row, 0, "")
+		p.Title = getColumn(row, 1, "") 
+		p.Assignee = getColumn(row, 2, "")
+		p.Inventor = getColumn(row, 3, "")
+		p.Priority = getColumn(row, 4, "")  
+		p.Filing = getColumn(row, 5, "") 
+		p.Publication = getColumn(row, 6, "")
+		p.Grant = getColumn(row, 7, "")
+		p.ResultLink = getColumn(row, 8, "")
+		p.FigureLink = getColumn(row, 9, "") 
+		p.DownloadedPDF = getColumn(row, 10, "")
+		data = append(data, p)
 	}
-	return data, fmt.Errorf("Parse not implemented")
+	return data, nil
 }
 
 func retrieveResultPage(link string) (string, error) {
@@ -110,26 +120,26 @@ func Process(data []*PatentRecord) error {
 		if rec.ResultLink != "" {
 			src, err := retrieveResultPage(rec.ResultLink)
 			if err != nil {
-				fmt.Fprintf(os.Stderr, "failed to retrieve (%d) %q, %s\n", i+2, rec.ResultLink, err)
+				fmt.Fprintf(os.Stderr, "failed to retrieve (%d) %q, %s\n", (i+2), rec.ResultLink, err)
 				errCnt++
 				continue
 			}
 			citationPdfUrl, err := getCitationPdfUrl(src)
 			if err != nil {
-				fmt.Fprintf(os.Stderr, "failed to find citation PDF URL (%+d), %s", i+2, err)
+				fmt.Fprintf(os.Stderr, "failed to find citation PDF URL (%+d), %s\n", (i+2), err)
 				errCnt++
 				continue
 			}
 			if err := retrievePatentPdf(citationPdfUrl); err != nil {
-				fmt.Fprintf(os.Stderr, "failed to retreive (%d) %q, %s\n", i+2, citationPdfUrl, err)
+				fmt.Fprintf(os.Stderr, "failed to retreive (%d) %q, %s\n", (i+2), citationPdfUrl, err)
 				continue
 			}
 		} else {
-			fmt.Printf("skipping row %d, no result link value\n", i+2)
+			fmt.Printf("skipping row %d, no result link value\n", (i+2))
 		}
 	}
 	if errCnt > 0 {
-		return fmt.Errorf("%d errors processing CSV file")
+		return fmt.Errorf("%d errors processing CSV file", errCnt)
 	}
 	return nil
 }

@@ -4,3 +4,6 @@
 *~
 *.csv
 *.pdf
+bin/*
+man/*
+dist/*
