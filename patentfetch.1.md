@@ -1,4 +1,4 @@
-%patentfetch(1) user manual | version 0.0.1 85a1222
+%patentfetch(1) user manual | version 0.0.1 afcacf2
 % R. S. Doiel
 % 2025-10-21
 
